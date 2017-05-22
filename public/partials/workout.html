@@ -1,0 +1,130 @@
+<div class="ui top fixed menu">
+  <div class="branding">
+    <a ng-href="#/home">Fh</a>
+  </div>
+  <a ng-href="#/explore" class="item">Find</a>
+  <a ng-show="loggedIn == true;" ng-href="#/create" class="item">Create</a>
+  <div class="right menu">
+  	<div ng-show="loggedIn == false;" class="item">
+  		<a href="#/signup" class="small ui button">Sign Up</a>
+  	</div>
+  	<div ng-show="loggedIn == false;" class="item">
+  		<a href="#/login" class="small ui button">Login</a>
+  	</div>
+  	<div ng-show="loggedIn == true;" class="item">
+  		<a href="#/profile/{{userID}}"><i class="user icon"></i> {{userName}}</a>
+  	</div>
+  	<div ng-show="loggedIn == true;" class="item">
+  		<button ng-click="logout()" class="small ui button">Logout</button>
+  	</div>
+  </div>
+</div>
+
+<div id="workoutInfo" class="ui stackable grid">
+	<div class="six wide column">
+		<div class="workoutName">
+			{{workout.name}}<a href="#/edit/{{workout._id}}"><i ng-show="check_user()" class="edit icon"></i></a>
+		</div>
+		<p class="workoutCreator">Created by {{workout.current_user}}</p>
+	</div>
+
+	<div class="seven wide right floated center aligned column workoutMetrics">
+		<div class="ui big label">
+		  <i class="copy icon"></i>
+		  {{workout.num_copy}}
+		  <a ng-click="copy()" ng-show="loggedIn" class="detail">Copy</a>
+		</div>
+		<div class="ui big label">
+		  <i class="star icon"></i>
+		  {{workout.num_favorite}}
+		  <a ng-click="favorite()" ng-show="favorited == false" class="detail">Favorite</a>
+		</div>
+	</div>
+</div>
+
+<div id="workoutBody" class="ui grid">
+	<div class="fifteen wide centered column">
+		<div class="ui top attached tabular menu">
+		  <div ng-repeat="tab in tabs"
+		  	   ng-class="determineClass(tab.url)"
+		  	   ng-click="onClickTab(tab)">{{tab.title}}</div>
+		</div>
+		<div class="ui bottom attached active tab segment" id="mainView">
+            <div ng-include="currentTab"></div>
+        </div>
+		<div data-tab="summary">
+		  <p></p>
+		  <p></p>
+		</div>
+
+		<script type="text/ng-template" id="summaryView">
+			<div class="ui stackable seven column grid summaryContainer">
+				<div ng-repeat="day in workout.days" class="dayContainer column">
+					<div class="dayHeader">{{day.day}}</div>
+					<div ng-show="day.elements.length == 0" class="emptyDay">
+						<div class="verticaltext">
+							No Activity
+						</div>
+					</div>
+					<div ng-repeat="element in day.elements" class="workoutElement">
+						{{element.name}}
+					</div>
+				</div>
+			</div>
+		</script>
+		<script type="text/ng-template" id="detailedView">
+			<table class="ui celled table">
+			  	<thead>
+				    <tr>
+					    <th>Element</th>
+					    <th>Sets</th>
+					    <th>Reps</th>
+					    <th>Time</th>
+					    <th>Distance</th>
+				  	</tr>
+			  	</thead>
+			  <tbody ng-repeat="day in workout.days">
+			  		<tr class="detailed dayRow">
+			  			<td>{{day.day}}</td>
+			  		</tr>
+			  		<tr ng-repeat="element in day.elements">
+			  		  <td>{{element.name}}</td>
+			  		  <td>{{element.sets}}</td>
+			  		  <td>{{element.reps}}</td>
+			  		  <td>{{element.time}}</td>
+			  		  <td>{{element.distance}}</td>
+			  		</tr>
+			  </tbody>
+			</table>
+		</script>
+	</div>
+</div>
+
+<div class="ui grid commentSection">
+	<div class="row">
+		<div class="one wide column"></div>
+		<div class="eleven wide column inputField">
+			<div class="ui form">
+				<div class="field">
+				    <textarea ng-show="userID != '' " ng-model="commentBody" rows="2" placeholder="Write a new comment!"></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="three wide column">
+			<button ng-show="userID != '' " ng-click="comment()" class="ui fluid button commentButton">Comment</button>
+		</div>
+	</div>
+	<div ng-repeat="comment in workout.comments" class="row">
+		<div class="one wide column"></div>
+		<div class="fourteen wide column">
+			<div class="ui segments comment">
+			  <div class="ui segment commentHeader">
+			    <p>{{comment.user}}</p>
+			  </div>
+			  <div class="ui segment commentBody">
+			    <p>{{comment.content}}</p>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>

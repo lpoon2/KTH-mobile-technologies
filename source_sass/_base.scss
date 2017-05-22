@@ -1,0 +1,571 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700');
+
+body{
+	font-family: $Raleway;
+}
+
+#ng-container{
+}
+
+//navbar 
+.branding{
+	background-color: $primary-green;
+	width: 10%;
+	text-align: center;
+	font-size: 48px;
+	line-height: 48px;
+	color: white;
+	font-weight: 700;
+
+	a{
+		color: white;
+	}
+
+	@media screen and (max-width: 777px) {
+	  		font-size: 24px;
+	  		line-height: 48px;
+	  	}
+}
+
+.menu{
+	font-weight: 400;
+	font-family: $Raleway !important;
+	border-style: none !important;
+
+	@media screen and (max-width: 777px) {
+  		font-size: 16px;
+  	}
+
+	@media screen and (max-width: 400px) {
+  		font-size: 8px;
+  	}
+
+	.item{
+		color: $primary-green !important;
+
+		@media screen and (max-width: 777px) {
+	  		font-size: 18px;
+	  	}
+
+		@media screen and (max-width: 400px) {
+	  		font-size: 10px;
+	  	}
+
+		i{
+			color: $primary-green;
+		}
+		.button{
+			background-color: $secondary-green;
+			color: white;
+		}
+	}
+}
+
+//homepage
+#firstBanner{
+	height: 500px;
+	@include fixed-background();
+	background-image : url(../assets/banner1.jpg);
+	position: relative;
+
+	#headerText{
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  text-align: center
+	}
+
+	h2{
+	  	color: white;
+	  	font-weight: 700;
+	  	font-size: 144px;
+
+	  	@media screen and (max-width: 777px) {
+	  		font-size: 50px;
+	  	}
+	}
+
+	h4{
+		color: white;
+	  	font-weight: 400;
+	  	font-size: 36px;
+	}
+}
+
+#secondBanner{
+	@media screen and (min-width: 777px) {
+  		padding-left: $normal-margin;
+  	}
+
+	@media screen and (max-width: 400px) {
+  		padding-left: 0px;
+  	}
+	h4{
+		padding-top: 30px;
+		font-size: 48px;
+		font-weight: 700;
+	}
+	
+	p{
+		font-size: 24px;
+		font-weight: 100;
+		line-height: 30px;
+	}
+
+	.button{
+		margin-top: $normal-margin;
+		background-color: $secondary-green;
+		color: white;
+	}
+
+	text-align:center;
+	background-image : url(../assets/banner2.png);
+	background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+    padding-top: $big-margin;
+    padding-bottom: $big-margin;
+}
+
+#thirdBanner{
+	padding-top: $big-margin;
+	padding-bottom: $big-margin;
+	text-align: center;
+
+	p{
+		text-align: center;
+		font-size: 24px;
+		font-weight: 100;
+		line-height: 30px;
+		margin-top: $normal-margin;
+	}
+
+	.button{
+		margin-top: $normal-margin;
+		background-color: $secondary-green;
+		color: white;
+	}
+}
+
+//workout page
+#workoutInfo{
+	.workoutName{
+		font-size: 30px;
+		font-weight: 400;
+		padding-left: $small-margin;
+
+		i{
+			color: $primary-green;
+		}
+	}
+
+	
+	.workoutCreator{
+		margin-top: $small-margin;
+		color: grey;
+		font-size: 20px;
+		font-weight: 400;
+		padding-left: $small-margin;
+	}
+
+	.button{
+		background-color: $secondary-green;
+		color: white;
+		width: 90%;
+	}
+
+	.workoutMetrics{
+		.label{
+			float:right;
+			margin-left: $small-margin;
+			margin-right: $small-margin;
+			background-color: $primary-green;
+			color: white;
+		}
+	}
+	margin-top: $big-margin;
+}
+
+.footer{
+	height: 100px;
+	background-color: $primary-green;
+	padding-bottom: $normal-margin !important;
+	.footerGrid{
+		padding-bottom: $small-margin !important;
+	}
+	h3{
+		font-weight: 700;
+		font-size: 36px;
+		color: white;
+	}
+	i{
+		font-size: 24px;
+		color: white;
+	}
+}
+
+.summaryContainer{
+	padding: 5px;
+	.dayContainer{
+		padding: 0 !important;
+		height: 300px;
+		overflow-y: scroll;
+		background-color: grey;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+		.dayHeader{
+			background-color: $secondary-green;
+			text-align: center;
+			font-size: 18px;
+			color: white;
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+
+		.workoutElement{
+			background-color: white;
+			padding-top: $small-margin;
+			padding-bottom: $small-margin;
+			text-align: center;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			height: auto;
+			overflow:auto; 
+
+			.controls{
+				width: 100%;
+				padding-top: $small-margin;
+				height: 10px;
+				.deleteElement{
+					float: left;
+					width: 50%;
+					color: red;
+				}
+
+				.expandElement{
+					float: right;
+					width: 50%;
+					color: $primary-green;
+				}
+			}
+			
+		}
+
+		.emptyDay{
+			text-align: center;
+			height: 272px;
+			background-color: $light-grey;
+		}
+	}
+}
+
+.dayRow{
+	background-color: $third-green;
+}
+
+.verticaltext{
+	transform: rotate(90deg);
+	transform-origin: top 20;
+	float: right;
+	margin-top: 100px;
+	font-size: 30px;
+	color: white;
+}
+
+.commentSection{
+	margin-bottom: $big-margin !important;
+	.inputField{
+	}
+
+	.comment{
+		.commentHeader{
+			color: white;
+			background-color: $third-green;
+			height: 7px !important;
+		}
+		.commentBody{
+			
+		}
+	}
+
+	.commentButton{
+		background-color: $primary-green;
+		color: white;
+	}
+}
+
+//Create workout page
+
+.createWorkoutBanner{
+	height: 300px;
+	@include fixed-background();
+	background-image : url(../assets/createBanner.jpg);
+	position: relative;
+
+	#headerText{
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  text-align: center
+	}
+
+	h2{
+	  	color: black;
+	  	font-weight: 700;
+	  	font-size: 100px;
+
+	  	@media screen and (max-width: 777px) {
+	  		font-size: 50px;
+	  	}
+	}
+}
+
+.createGrid{
+	margin-top: $normal-margin;
+	margin-bottom: $normal-margin;
+}
+
+.step{
+	margin-top: $normal-margin;
+	margin-bottom: $normal-margin;
+	.description{
+		font-size: 36px;
+		font-weight: 100;
+		margin-bottom: $normal-margin;
+
+		strong{
+			font-size: 36px;
+			font-weight: 700;
+			color: $primary-green;
+		}
+		.subText{
+			font-size: 24px;
+			font-weight: 100;
+		}
+
+		.input{
+			float: left;
+		}
+	}
+	.stepInput{
+		.radio{
+			font-size: 30px;
+			font-weight: 100;
+			margin-top: $normal-margin;
+			i{
+				font-size: 50px;
+				color: $primary-green;
+			}
+		}
+	}
+}
+
+.break{
+	hr{
+		width: 100%;
+		border-color: $primary-green;
+		margin-bottom: $small-margin;
+		margin-top: $small-margin;
+	}
+}
+
+
+.elementSearch{
+	.searchElements{
+		border-color: $primary-green;
+		input{
+			color: white;
+			width: 100%;
+		}
+		@include placeholders();
+	}
+	.resultElements{
+		height: 200px;
+		overflow-y: scroll;
+
+		.element{
+			font-size: 24px;
+			color: $primary-green;
+			padding: 0;
+			.elementName{
+				padding: 5px;
+			}
+			.column.dayContainer{
+				padding: 0;
+			}
+			.selectionDay{
+				float: left;
+				height: 100%;
+				width: 14.28%;
+				background-color: $third-green;
+				color: white;
+				text-align: center;
+				padding: 0;
+				border: 1px solid $primary-green;
+			}
+			box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1), 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+		}
+	}
+}
+
+.tagButton{
+	background-color: $third-green !important;
+	font-family: $Raleway !important;
+	margin-top: $small-margin !important;
+}
+
+.activeTag{
+	background-color: $primary-green !important;
+}
+
+#addedElementModal{
+	.header{
+		color: $primary-green;
+	}
+	#modalGrid{
+		padding: 10px;
+	}
+}
+
+
+//User Profile View
+
+.profileContainer{
+	margin-top: $big-margin !important;
+	margin-bottom: 240px !important;
+	.userName{
+		font-size: 36px;
+		font-weight: 700;
+		text-align: center;
+		color: $primary-green;
+		margin-top: $normal-margin;
+	}
+}
+
+.workoutCard{
+
+	.cardHeader{
+		a{
+			color: $primary-green;
+		}
+		color: white;
+		background-color: $third-green;
+		font-size: 14px !important;
+		font-weight: 400;
+		.headerInfo{
+			float: right;
+			margin-left: $small-margin;
+		}
+	}
+
+	.cardDescription{
+	}
+
+	.cardFooter{
+		.cardTag{
+			background-color: $third-green;
+			color:white;
+		}
+	}
+}
+
+
+//Explore View
+
+.exploreBanner{
+	height: 300px;
+	@include fixed-background();
+	background-image : url(../assets/exploreBanner2.jpg);
+	position: relative;
+
+	#headerText{
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  text-align: center
+	}
+
+	h2{
+	  	color: white;
+	  	font-weight: 700;
+	  	font-size: 100px;
+
+	  	@media screen and (max-width: 777px) {
+	  		font-size: 50px;
+	  	}
+	}
+}
+
+.exploreSearch{
+	.topicButton{
+		background-color: $third-green !important;
+		color: white !important;
+	}
+
+	.activeSort{
+		background-color: $secondary-green !important;
+	}
+}
+
+.exploreBody{
+	margin-bottom: $normal-margin;
+	
+	.exploreResults{
+	}
+
+	.resultUser{
+		color: white;
+	}
+}
+
+
+// Login Page
+.error{
+	text-align: center;
+	font-weight: 700;
+	font-size: 18px;
+	opacity: .95;
+}
+
+.loginPage{
+	margin-top: $big-margin !important;
+	padding-bottom: 200px !important;
+	@include fixed-background();
+	background-image : url(../assets/signupBanner.jpg);
+}
+
+.loginBox{
+	margin-top: $big-margin !important;
+	margin-bottom: $giant-margin !important;
+	opacity: 0.95;
+}
+
+.loginIntro{
+	text-align: center;
+	font-weight: 700;
+	font-size: 24px;
+	color: $primary-green;
+}
+
+.loginButton{
+	background-color: $primary-green !important;
+	color: white !important;
+}
+
+.commandButton{
+	background-color: $primary-green !important;
+	color: white !important;
+	margin-bottom: $normal-margin !important;
+}
+
+.copyRight{
+	padding: $small-margin;
+	background-color: #254441;
+	color: white;
+}
+
+.deleteButton{
+	color: white !important;
+}

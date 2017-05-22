@@ -1,0 +1,79 @@
+<div class="ui top fixed menu">
+  <div class="branding">
+    <a ng-href="#/home">Fh</a>
+  </div>
+  <a ng-href="#/explore" class="item">Find</a>
+  <a ng-show="loggedIn == true;" ng-href="#/create" class="item">Create</a>
+  <div class="right menu">
+  	<div ng-show="loggedIn == false;" class="item">
+  		<a href="#/signup" class="small ui button">Sign Up</a>
+  	</div>
+  	<div ng-show="loggedIn == false;" class="item">
+  		<a href="#/login" class="small ui button">Login</a>
+  	</div>
+  	<div ng-show="loggedIn == true;" class="item">
+  		<a href="#/profile/{{userID}}"><i class="user icon"></i> {{userName}}</a>
+  	</div>
+  	<div ng-show="loggedIn == true;" class="item">
+  		<button ng-click="logout()" class="small ui button">Logout</button>
+  	</div>
+  </div>
+</div>
+
+<div class="ui stackable grid loginPage">
+	<div class="row">
+		<div class="ui nine wide centered column">
+			<div class="ui eight wide centered column error">
+				<div data-ng-messages="SignUpFail" data-ng-show="signUpWorked == false" data-ng-cloak class="ui red message"><i class="red warning icon"></i> A user with this email already exists</div>
+			</div>
+		</div>
+		<div class="ui eight wide centered column">
+			<div class="ui segment loginBox">
+				<div class="ui stackable one column grid">
+					<div class="centered column">
+						<h4 class="loginIntro">
+							Welcome to Fithub!
+						</h4>
+					</div>
+					<div class="centered column">
+						<div class="ui form">
+							<div class="field">
+							    <label>Username</label>
+							    <input ng-model="signUpObject.name" class="fluid input" type="text" name="name" placeholder="superbuff">
+							 </div>
+						</div>
+					</div>
+					<div class="centered column">
+						<div class="ui form">
+							<div class="field">
+							    <label>Email</label>
+							    <input ng-model="signUpObject.email" class="fluid input" type="email" name="email" placeholder="john@smith.com">
+							 </div>
+						</div>
+					</div>
+					<div class="centered column">
+						<div class="ui form">
+							<div class="field">
+							    <label>Password</label>
+							    <input ng-model="signUpObject.Hash_password" class="input" type="password" name="password">
+							</div>
+						</div>
+					</div>
+					<div class="centered column">
+						<div class="ui form">
+							<div class="field">
+							    <label>Confirm Password</label>
+							    <input ng-model="signUpObject.confirmPass" class="input" type="password" name="password">
+							</div>
+						</div>
+					</div>
+					<div class="center aligned column">
+						<button ng-show="signUpObject.Hash_password == signUpObject.confirmPass && (signUpObject.Hash_password != undefined); " ng-click="signUp()" class="ui button loginButton">
+							Sign Up
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Fithub.com</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+		<link rel="stylesheet" href="./css/styles.css">
+	
+		<script src="./lib/angular/angular.min.js"></script>
+		<script src="./lib/angular-route/angular-route.min.js"></script>
+		<script src="./js/app.js"></script>
+		<script src="./js/controllers.js"></script>
+		<script src="./js/services.js"></script>
+	</head>
+	<body ng-app="fithub">
+		<div id="ng-container" ng-view></div>
+		<div class="footer">
+			<div class="ui stackable one column grid footerGrid">
+				<div class="center aligned column">
+					<h3>Follow Us!</h3>
+					<i class="twitter icon"></i>
+					<i class="facebook icon"></i>
+					<i class="youtube icon"></i>
+				</div>
+			</div>
+			<div class="column"></div>
+		<div class="copyRight">
+			&copy; 2016 Fithub.com All Rights Reserved
+		</div>
+		<script src="./lib/jquery/dist/jquery.min.js"></script>
+		<script src="semantic/semantic.min.js"></script>
+		<script src="./js/script.js"></script>
+		<script src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
+		<script src="http://localhost:35729/livereload.js"></script>
+		<script>
+			$(document).ready(function(){
+				console.log('hello');
+			    $('.menu .item').tab({history:false});
+			});
+			$('.button').click(function(){
+				console.log('clicked');
+			})		
+		</script>
+	</body>
+</html>

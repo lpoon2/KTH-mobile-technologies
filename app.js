@@ -36,7 +36,7 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 3000;
 
-mongoose.connect("mongodb://fithub:cs498fa2016@ds161487.mlab.com:61487/fithub");
+mongoose.connect("mongodb://fithub:dm2518@ds161487.mlab.com:61487/fithub");
 
 require('./routes')(app, router);
 

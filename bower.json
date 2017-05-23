@@ -1,12 +1,12 @@
 {
   "name": "fithub",
-  "description": "cs498-finalProject",
+  "description": "DM2518",
   "main": "index.js",
   "authors": [
     "Larry Poon <lpoon2@illinois.du>"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/lpoon2/Fithub",
+  "homepage": "https://github.com/lpoon2/KTH-mobile-technologies",
   "private": true,
   "ignore": [
     "**/.*",

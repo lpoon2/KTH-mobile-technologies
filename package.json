@@ -1,14 +1,14 @@
 {
   "name": "fithub",
   "version": "1.0.0",
-  "description": "cs498-finalProject",
+  "description": "DM2518",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lpoon2/Fithub.git"
+    "url": "git+https://github.com/lpoon2/KTH-mobile-technologies.git"
   },
   "author": "",
   "dependencies": {
@@ -32,9 +32,9 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lpoon2/Fithub/issues"
+    "url": "https://github.com/lpoon2/KTH-mobile-technologies/issues"
   },
-  "homepage": "https://github.com/lpoon2/Fithub#readme",
+  "homepage": "https://github.com/lpoon2/KTH-mobile-technologies#readme",
   "devDependencies": {
     "grunt": "^0.4.5"
   }

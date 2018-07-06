@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes,
+		initial-scale=1.0" />
+
+	<title>Fastfood iBeacons</title>
+
+	<style>
+	@import 'page.css';
+	</style>
+
+	<script>
+	// Redirect console if running from Evothings Workbench.
+	if (window.hyper) { console.log = hyper.log }
+	</script>
+</head>
+
+<body>
+	<div class="welcome" id="page-default" >
+		<div class="my-header">
+			<img class="my-icon-back" src="icon-back.png" ontouchend="history.back()" />
+		</div>
+		<div class="my-content">
+			<h3><b>Welcom to Fastfood iBeacons</b></h3>
+			<p>Please move within range to order some fastfood.</p>
+		</div>
+	</div>
+
+	<div class="my-page" id="page-feet">
+		<div class="my-header">
+			<img class="my-header-image" src="photos/subway.png" />
+			<img class="my-icon-back" src="icon-back.png" ontouchend="history.back()" />
+		</div>
+		<div class="my-content">
+			<div class="card" style="width: 20rem;">
+			  <div class="card-block">
+					<img class="card-img-top" src="photos/subway/1.jpeg" alt="Card image cap">
+			    <h4 class="card-title">Black Forest Ham</h4>
+			    <p class="card-text">The Black Forest Ham has never been better. Load it up with all the crunchy veggies you like on your choice of freshly baked bread. Yum! </p>
+			  </div>
+			  <ul class="list-group list-group-flush">
+			    <li class="list-group-item">SERVING SIZE (g)219</li>
+			    <li class="list-group-item">CALORIES290</li>
+			    <li class="list-group-item">TOTAL FAT (g)4.5</li>
+			  </ul>
+			  <div class="card-block">
+					 <button type="button" class="btn btn-default">Order</button>
+					 <button type="button" class="btn btn-default">Delivery</button>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="my-page" id="page-shoulders">
+		<div class="my-header">
+			<img class="my-header-image" src="photos/m.jpeg" />
+			<img class="my-icon-back" src="icon-back.png" ontouchend="history.back()" />
+		</div>
+		<div class="my-content">
+			<div class="card" style="width: 20rem;">
+			  <div class="card-block">
+					<img class="card-img-top" src="photos/mac/1.jpeg" alt="Card image cap">
+			    <h4 class="card-title">Big Mac</h4>
+			    <p class="card-text">The Big Mac consists of two 1.6 oz (45.4 g) 100 per cent beef patties.</p>
+			  </div>
+			  <ul class="list-group list-group-flush">
+			    <li class="list-group-item">Calories 257</li>
+			    <li class="list-group-item">Total Fat 15 g</li>
+			    <li class="list-group-item">Cholesterol 36 mg</li>
+			  </ul>
+			  <div class="card-block">
+					<button type="button" class="btn btn-default">Order</button>
+					<button type="button" class="btn btn-default">Delivery</button>
+			  </div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="my-page" id="page-face">
+		<div class="my-header">
+			<img class="my-header-image" src="photos/max.png" />
+			<img class="my-icon-back" src="icon-back.png" ontouchend="history.back()" />
+		</div>
+		<div class="my-content">
+			<div class="card" style="width: 20rem;">
+			  <div class="card-block">
+					<img class="card-img-top" src="photos/max/1.jpeg" alt="Card image cap">
+			    <h4 class="card-title">ROAST BEEF MAX</h4>
+			    <p class="card-text">There's nothing wrong with more meat. That's the life philosophy embodied by the Arby's Roast Beef Max.</p>
+			  </div>
+			  <ul class="list-group list-group-flush">
+			    <li class="list-group-item">Calories From Fat: 240</li>
+			    <li class="list-group-item">Saturated Fat: 13g (65% DV)</li>
+			    <li class="list-group-item">Trans Fat: 1.5g</li>
+			  </ul>
+			  <div class="card-block">
+					<button type="button" class="btn btn-default">Order</button>
+					<button type="button" class="btn btn-default">Delivery</button>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+	<script src="lib/jquery.js"></script>
+	<script src="cordova.js"></script>
+	<script src="app.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

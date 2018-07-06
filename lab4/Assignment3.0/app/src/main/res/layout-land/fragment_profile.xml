@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lpoon2.assignment30.Profile"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/avarter"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_marginLeft="67dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="43dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Larry Poon"
+        android:layout_marginTop="48dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginStart="53dp"
+        android:layout_alignTop="@+id/avarter"
+        android:layout_toRightOf="@+id/avarter"
+        android:layout_toEndOf="@+id/avarter" />
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="lpoon2"
+        android:layout_below="@+id/name"
+        android:layout_alignLeft="@+id/name"
+        android:layout_alignStart="@+id/name" />
+
+    <TextView
+        android:id="@+id/repos"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="repositories"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0 "
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+        android:layout_below="@+id/user_name"
+        android:onClick="toNextFragment"
+        android:clickable="true"
+        android:layout_alignLeft="@+id/user_name"
+        android:layout_alignStart="@+id/user_name"
+        android:layout_alignRight="@+id/user_name"
+        android:layout_alignEnd="@+id/user_name" />
+
+    <TextView
+        android:id="@+id/followers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="e"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        android:onClick="toNextFragment"
+        android:clickable="true"
+        android:layout_below="@+id/repos"
+        android:layout_alignLeft="@+id/repos"
+        android:layout_alignStart="@+id/repos" />
+
+    <TextView
+        android:id="@+id/following"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="i"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        android:onClick="toNextFragment"
+        android:clickable="true"
+        android:layout_below="@+id/followers"
+        android:layout_alignLeft="@+id/followers"
+        android:layout_alignStart="@+id/followers" />
+
+    <TextView
+        android:id="@+id/created_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="_"
+        android:layout_below="@+id/following"
+        android:layout_alignLeft="@+id/following"
+        android:layout_alignStart="@+id/following" />
+
+</RelativeLayout>

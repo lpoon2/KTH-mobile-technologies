@@ -1,0 +1,67 @@
+html, body
+{
+	background-image:url(photos/background.jpg);
+	background-size: auto;
+	margin: 0px;
+	padding: 0px;
+}
+
+.my-page
+{
+	display: none;
+	height: 100%;
+}
+
+.my-header
+{
+	position: relative;
+}
+
+.my-header-image
+{
+	width: 100%;
+	height: auto;
+}
+.welcome{
+	padding-top: :-50%;
+	width: 100%;
+	height: 100%
+	text-align : center;
+}
+
+.welcome .my-content{
+
+	top:35%;
+	translateY: -25px;
+	position: absolute;
+	text-align: center;
+	height: auto;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+.my-icon-back
+{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 12%;
+	height: auto;
+}
+.card{
+	background-color: rgba(255, 255, 255, 0.8);
+}
+.my-content
+{
+	margin: 10px 20px;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+.my-content h1
+{
+	font-size: 150%;
+}
+
+.my-content p, .my-content ul
+{
+	font-size: 120%;
+}

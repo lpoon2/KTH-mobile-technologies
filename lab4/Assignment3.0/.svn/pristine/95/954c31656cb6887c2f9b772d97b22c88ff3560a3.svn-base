@@ -1,0 +1,171 @@
+package com.example.lpoon2.assignment30;
+
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.TypedValue;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.io.InputStream;
+import java.net.URL;
+import java.util.concurrent.ExecutionException;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * Use the {@link Profile#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class Profile extends Fragment {
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String NAME = "param1";
+    private static final String IMG_URL= "img";
+    private static final String REPOS = "repos";
+    private static final String FOLLOWER= "follower";
+    private static final String FOLLOWING= "following";
+    private static final String CREATED= "created";
+
+    private String user_name = "";
+    private String url = "https://api.github.com/users/lpoon2";
+    private String image_url = "";
+    private String follower_url = "";
+    private String following_url = "";
+    private int followers = 0;
+    private int following = 0;
+    private int repos = 0;
+    private String created = "";
+    //private OnFragmentInteractionListener mListener;
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param user_name the url to the user profile page
+     * @return A new instance of fragment Profile.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static Profile newInstance(String user_name, String img, int repos_num, int followers_num, int following_num , String created_date){
+        Profile fragment = new Profile();
+        Bundle args = new Bundle();
+        args.putString(NAME, user_name);
+        args.putString(IMG_URL, img);
+        args.putString(REPOS, Integer.toString(repos_num));
+        args.putString(FOLLOWER, Integer.toString(followers_num));
+        args.putString(FOLLOWING, Integer.toString(following_num));
+        args.putString(CREATED, created_date);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    public Profile() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            user_name = getArguments().getString(NAME);
+            image_url = getArguments().getString(IMG_URL);
+            followers = Integer.parseInt(getArguments().getString(FOLLOWER));
+            following = Integer.parseInt(getArguments().getString(FOLLOWING));
+            repos = Integer.parseInt(getArguments().getString(REPOS));
+            created = getArguments().getString(CREATED);
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
+        final View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
+        TextView name = (TextView)rootView.findViewById(R.id.user_name);
+        TextView repo = (TextView)rootView.findViewById(R.id.repos);
+        TextView follower = (TextView)rootView.findViewById(R.id.followers);
+        TextView followingView = (TextView)rootView.findViewById(R.id.following);
+        ImageView img = (ImageView)rootView.findViewById(R.id.avarter);
+        TextView date = (TextView)rootView.findViewById(R.id.created_date);
+
+        GETImage image = new GETImage();
+        Drawable drawable_img = null;
+
+        try {
+            drawable_img = image.execute(image_url).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        img.setImageDrawable(drawable_img);
+
+        name.setText(user_name);
+        name.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getDimension(R.dimen.textsize));
+
+        date.setText("created at :" + created);
+        date.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getDimension(R.dimen.textsize));
+
+        repo.setText(Integer.toString(repos) + " repositories");
+        repo.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getDimension(R.dimen.textsize));
+
+        follower.setText(Integer.toString(followers) + " followers");
+        follower.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getDimension(R.dimen.textsize));
+
+        followingView.setText(Integer.toString(following) + " following");
+        followingView.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getDimension(R.dimen.textsize));
+
+        return rootView;
+
+    }
+
+    /**
+     * A helper function to read drawable from url
+     * this function is inspired by https://stackoverflow.com/questions/6407324/how-to-display-image-from-url-on-android
+     * @param url
+     * @return
+     */
+    public static Drawable LoadImageFromWebOperations(String url) {
+        try {
+            InputStream is = (InputStream) new URL(url).getContent();
+            Drawable d = Drawable.createFromStream(is, "src name");
+            return d;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    /**
+     * A private class that extends AsyncTask class. This class is set up for
+     * making http request to Github api
+     */
+    private class GETImage extends AsyncTask<String, Void, Drawable> {
+
+        /**
+         * Sending http get in background. Because Andriod doesn't allow sending request in the main thread
+         * @param params
+         * @return
+         */
+        @Override
+        protected Drawable doInBackground(String[] params) {
+            Drawable d = null;
+            String img_url  = params[0];
+            try {
+                InputStream is = (InputStream) new URL(img_url).getContent();
+                d = Drawable.createFromStream(is, "src name");
+                return d;
+            } catch (Exception e) {
+                return null;
+            }
+
+        }
+
+    }
+
+}

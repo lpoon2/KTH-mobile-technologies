@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no,
+        shrink-to-fit=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>The Dome Dome</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+    <script src="d3/d3.js"></script>
+    <script src='https://cdn.rawgit.com/nicgirault/circosJS/v2/dist/circos.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-queue/3.0.3/d3-queue.js'></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <!-- This script, cordova.js,  is built into Evothings Viewer (i.e. you won't need to add this file to your project) The idea is to pick up a http resource, even if you're using https, which would normally create a cross-protocol violation. The HTTP plug-in from Apache Cordova allows this to be carried out, see especially this post: https://evothings.com/evothings-secured-now-serving-over-https/ -->
+
+    <script src="cordova.js"></script>
+
+    <script>
+    // Redirect console.log to Evothings Workbench, so you can see data under 'Tools'
+    if (window.hyper && window.hyper.log) { hyper.log = console.log }
+    </script>
+</head>
+<style>
+.tt {
+  width : 200 px;
+}
+</style>
+
+<body>
+  <main>
+    <!-- <div class="btn-group">
+    <button type="button" class="tt btn btn-primary btn-xs">Whiteboard, uppe</button>
+    <button type="button" class="tt btn btn-success btn-xs">Konferensrum, uppe</button>
+    <button type="button" class="tt btn btn-info btn-xs">Konferensrum, nere</button>
+    <button type="button" class="tt btn btn-warning btn-xs">Under trappan, nere</button>
+    <button type="button" class="tt btn btn-danger btn-xs">Ingång, konferensrum, nere.</button>
+    <button type="button" class="tt btn btn-default btn-xs">Ingång, konferensrum, uppe</button>
+</div> -->
+  <div id="line">
+    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+      <div class="mdl-card mdl-cell mdl-cell--12-col">
+        <div class="mdl-card__supporting-text">
+          <h4>Line</h4>
+          <div id='lineChart'></div>
+          <h3 id='name'></h3>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+<script>
+
+// Create an empty sensor object as a global
+var sensor = {};
+
+// Where the sensor data is stored
+var mSensorDataURL = 'http://smartspaces.r1.kth.se:8082/output/';
+
+// A subscriber's key (Five other keys also availble at http://smartspaces.r1.kth.se:8082)
+// this is key 2
+sensor.key = "J3Wgj9qegGFX4r9KlxxGfaeMXQB";
+
+// A bitmap image describing where the sensor is located
+sensor.image = "https://evothings.com/demos/dome_pics/IMG_1758.JPG";
+
+
+// Function to retrieve data, placing it in a "response" object
+function getJSON()
+    {
+    if (window.cordova)
+        {
+            console.log('Using Apache Cordova HTTP GET function');
+            cordovaHTTP.get(
+                mSensorDataURL + sensor.key + '.json?limit=9000&now-1day',
+                function (response)
+                    {
+                        if (response)
+                            {
+                                sensor.data = JSON.parse(response.data)[0];
+                                sensor.fullData = JSON.parse(response.data);
+                                printData();
+                            }
+                    },
+                function (error)
+                    {
+                    console.log(JSON.stringify(error));
+                    });
+        }
+    else
+        {
+            console.log('Not using Cordova, fallback to AJAX via jquery');
+            $.ajax({
+                    url: mSensorDataURL + sensor.key + ".json?limit=9000&now-1day",
+                    jsonp: "callback",
+                    cache: true,
+                    dataType: "jsonp",
+                    data:
+                        {
+                            page: 1
+                        },
+                    success: function(response)
+                        {
+                            if (response && response[0])
+                                {
+                                    sensor.data = response[0];
+                                    sensor.fullData = response;
+                                    printData();
+                                }
+                        }
+                });
+        }
+}
+
+
+function printData()
+    {
+        if (sensor && sensor.data)
+            {
+            // Display the info.
+                html = '<h1>Sensor Data</h1>'
+                 + '<br /><div id="time">Time  ' + sensor.data.timestamp + '</div>'
+                 + '<div id="hum">Humidity ' + sensor.data.h + ' % (rel)</div>'
+                 + '<div id="temp">Temperature ' + sensor.data.t + ' celcius</div>'
+                 + '<img src="' + sensor.image + '" />'
+            }
+    else
+            {
+                html = '<h1>Sensor Data</h1>'
+                 + '<br />Sorry, sensor data not available right now :(</br>'
+                 + '<img src="' + sensor.image + '" />'
+            }
+    document.getElementById("printHere").innerHTML= html;
+    }
+
+// $('#lineChart').hide();
+function showChart(){
+  $('#lineChart').show();
+}
+
+$('.tt').click(function(e){
+  alert(e.target.id);
+});
+</script>
+<script src="line.js"></script>
+
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<button type="button" class="tt btn btn-primary btn-xs" id='BQa4EqqbgxfMgpBQ8XwNhvP82Dj'>Whiteboard, uppe</button>
+<button type="button" class="tt btn btn-success btn-xs" id='J3Wgj9qegGFX4r9KlxxGfaeMXQB'>Konferensrum, uppe</button>
+<button type="button" class="tt btn btn-info btn-xs" id='lB6p49pzXdFGQjpLwzzOTWj10rd'>Konferensrum, nere</button>
+<button type="button" class="tt btn btn-warning btn-xs" id='L4D98lO9ObtOdzx3PggKIaWmMGA'>Under trappan, nere</button>
+<button type="button" class="tt btn btn-danger btn-xs" id='LAjQ9E8PBOiOdzx3PggKIaWmMGA'>Ingång, konferensrum, nere.</button>
+<button type="button" class="tt btn btn-default btn-xs" id='BkPNOapq2WSMgpVlNQQKFYXPBWr'>Ingång, konferensrum, uppe</button>
+<button onclick="history.back()">Exit</button><br />
+<button onClick="showChart();">Retrieve some sensor data</button>
+<div id="printHere"></div>
+
+<script>
+$('.tt').click(function(e){
+  $('#lineChart').append('<h3>'+e.target.innerHTML+'</h3>');
+  showCir('http://smartspaces.r1.kth.se:8082/output/'+e.target.id+'.json?limit=9000&now-1day');
+  $("#regTitle").html("Hello World");
+  var elems = document.body.getElementsByTagName("svg");
+  var node = document.createElement("H3");
+  var textnode = document.createTextNode(e.target.innerHTML);         // Create a text node
+  node.appendChild(textnode);
+  elems[elems.length-1].appendChild(node);
+});
+</script>
+</body>
+</html>

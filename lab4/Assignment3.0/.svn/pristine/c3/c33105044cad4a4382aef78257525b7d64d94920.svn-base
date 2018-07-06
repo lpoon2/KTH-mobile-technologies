@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\lpoon2\.android\build-cache\d1437ce57b01f6daad17878179e5fa944c3fe85d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\build\intermediates\pre-dexed\debug\classes_22e122b6cc91097a3c36a2145b283f88f01abc25.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lpoon2\cs242\lpoon2\Assignment3.0\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Users\lpoon2\cs242\lpoon2\Assignment3.0\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_716c58001eaf5ee4d149bfb759c7e6735b6d2599\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lpoon2\cs242\lpoon2\Assignment3.0\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="21ddfe832009ba1371d6fabf7a93823ca3fd46a1">
+        <dex dex="C:\Users\lpoon2\cs242\lpoon2\Assignment3.0\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_c1d1ad01e468b76779c54445c0c06b2f9f5cbab8\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\lpoon2\.gradle\caches\modules-2\files-2.1\com.android.support.constraint\constraint-layout-solver\1.0.2\b9cd8fc6bd15cb915735d34535db30ece0c44603\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_73db3b4c8247c78a2cfb569e3c654b3620c173fe.jar" />
+    </item>
+
+</items>

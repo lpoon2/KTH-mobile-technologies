@@ -1,0 +1,66 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:2:1-22:12
+	package
+		ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:3:5-46
+		INJECTED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml
+application
+ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:5:5-19:19
+MERGED from [com.android.support:appcompat-v7:23.2.0] C:\Users\lpoon2\.android\build-cache\9aaa4a1194d2a72f8cbb77d087f050f72a0c65a4\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.2.0] C:\Users\lpoon2\.android\build-cache\2b0dccaed60fbb8dea126644b6ffd6b6524ea534\output\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.2.0] C:\Users\lpoon2\.android\build-cache\460675740adb234a129169771c8215581ec33cff\output\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.2.0] C:\Users\lpoon2\.android\build-cache\0973e86288026c1fab7277a4575014134d7fb5a7\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\lpoon2\.android\build-cache\d1437ce57b01f6daad17878179e5fa944c3fe85d\output\AndroidManifest.xml:9:5-20
+	android:label
+		ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:8:9-41
+	android:allowBackup
+		ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:6:9-35
+	android:icon
+		ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:7:9-43
+	android:theme
+		ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:9:9-40
+activity#com.example.lpoon2.assignment30.MainActivity
+ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:10:9-18:20
+	android:label
+		ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:12:13-45
+	android:name
+		ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:11:13-41
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:16:27-74
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:20:5-83
+	android:name
+		ADDED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml:20:22-64
+uses-sdk
+INJECTED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:23.2.0] C:\Users\lpoon2\.android\build-cache\9aaa4a1194d2a72f8cbb77d087f050f72a0c65a4\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.2.0] C:\Users\lpoon2\.android\build-cache\2b0dccaed60fbb8dea126644b6ffd6b6524ea534\output\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.2.0] C:\Users\lpoon2\.android\build-cache\460675740adb234a129169771c8215581ec33cff\output\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:recyclerview-v7:23.2.0] C:\Users\lpoon2\.android\build-cache\85cdc98dd597907da74a199d51ce152f6d5b640a\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.2.0] C:\Users\lpoon2\.android\build-cache\0973e86288026c1fab7277a4575014134d7fb5a7\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\lpoon2\.android\build-cache\d1437ce57b01f6daad17878179e5fa944c3fe85d\output\AndroidManifest.xml:5:5-7:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:23.2.0] C:\Users\lpoon2\.android\build-cache\9aaa4a1194d2a72f8cbb77d087f050f72a0c65a4\output\AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\lpoon2\KTH\Mobile\lab4\Assignment3.0\app\src\main\AndroidManifest.xml
